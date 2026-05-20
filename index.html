@@ -94,29 +94,42 @@ body{
 }
 .cover-name .firstname{
   font-family:'Great Vibes',cursive;
-  font-size:68px;color:#2a1010;
+  font-size:60px;color:#2a1010;
   line-height:1;display:block;
   text-shadow:0 1px 12px rgba(255,255,255,.3);
+  display:block;margin-top:30px;
 }
-.cover-name .lastname{
+/*.cover-name .lastname{
   font-family:'Cormorant Garamond',serif;
   font-size:15px;letter-spacing:6px;
   color:#3a1818;text-transform:uppercase;
-  display:block;margin-top:2px;
+  display:block;margin-top:20px;
 }
+*/
 .cover-name .mis-xv{
-  font-family:'Montserrat',sans-serif;
-  font-size:10px;letter-spacing:8px;
-  color:#3a1818;text-transform:uppercase;
-  display:block;margin-top:4px;font-weight:500;
-}
-
-.cover-save{
   font-family:'Montserrat',sans-serif;
   font-size:20px;letter-spacing:8px;
   color:#3a1818;text-transform:uppercase;
+  display:block;margin-top:20px;font-weight:200;
+}
+/*
+.cover-save{
+  font-family:'Montserrat',sans-serif;
+  font-size:15px;letter-spacing:8px;
+  color:#3a1818;text-transform:uppercase;
   display:block;margin-top:4px;font-weight:500;
 }
+*/
+
+.cover-save{
+  font-family:'Montserrat',sans-serif;
+  font-size:15px;letter-spacing:2px;
+  color:#3a1818;text-transform:uppercase;
+  display:block;margin-top:4px;font-weight:500;
+  position:absolute;bottom:0;left:0;right:0;
+  padding:16% 32% 30%;
+}
+
 
 .cover-date{
   position:absolute;bottom:0;left:0;right:0;
@@ -133,6 +146,8 @@ body{
   font-family:'Playfair Display',serif;
   font-size:12px;letter-spacing:4px;
   color:#2a1010;text-transform:uppercase;display:block;
+  position: absolute; bottom: 75%;
+  font-weight:700;text-transform:uppercase;
 }
 .cover-date .dl-num{
   font-family:'Playfair Display',serif;
@@ -152,7 +167,7 @@ body{
 .cover-date .dr-yr{
   font-family:'Playfair Display',serif;
   font-size:26px;color:#2a1010;
-  letter-spacing:2px;display:block;line-height:1.2;
+  letter-spacing:9px;display:block;line-height:1.2;
 }
 
 /* ─── REPRODUCTOR ─── */
@@ -272,6 +287,7 @@ body{
   min-height:55vh;
   background:#d4b0a8;
   display:flex;align-items:stretch;
+  
 }
 .photo-strip .ps-img{
   width:100%;min-height:55vh;
@@ -287,6 +303,10 @@ body{
 }
 .photo-strip .ps-placeholder input[type="file"]{
   position:absolute;inset:0;opacity:0;cursor:pointer;
+}
+.photo-strip::before{
+ content:'';position:absolute;top:0;left:0;right:0;
+  height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)
 }
 .ph-circle{
   width:48px;height:48px;
@@ -354,7 +374,7 @@ body{
 }
 .event-section::before{
   content:'';position:absolute;top:0;left:0;right:0;
-  height:3px;background:linear-gradient(90deg,transparent,var(--rose),transparent);
+  height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
 }
 .event-type-label{
   font-size:9px;letter-spacing:5px;
@@ -605,15 +625,15 @@ body{
     
 
     <div class="cover-name">
-      <span class="firstname editable" contenteditable="true">Narayani</span>
-      <span class="lastname editable" contenteditable="true">Sophia Hernández</span>
+      <span class="firstname editable" contenteditable="true">Narayani Sophia</span>
+      <!--<span class="lastname editable" contenteditable="true">Sophia Hernández</span>-->
       <span class="mis-xv">· Mis XV ·</span>
-      <span class="cover-save">Save the date</span>
     </div>
 
-    <div class="cover-save">Save the date</div>
+    
 
     <div class="cover-date">
+      <div class="cover-save">Save the date</div>
       <div class="dl">
         <span class="dl-lbl editable" contenteditable="true">Viernes</span>
         <span class="dl-num editable" contenteditable="true">19</span>
@@ -636,8 +656,8 @@ body{
   </div>
 
   <div class="player-card">
-    <div class="player-song-name editable" contenteditable="true">Love On The Brain</div>
-    <div class="player-artist editable" contenteditable="true">Rihanna</div>
+    <div class="player-song-name editable" contenteditable="false">Love On The Brain</div>
+    <div class="player-artist editable" contenteditable="false">Rihanna</div>
 
     <div class="player-bar" id="player-bar" onclick="seekAudio(event)">
       <div class="player-progress" id="player-progress"></div>
@@ -689,7 +709,7 @@ body{
   </p>
 
   <audio id="audio-el" loop
-    src="sonidos\Rihanna_Love_On_The_Brain.mp3">
+    src="C:\Users\Admin\Downloads\Sofi\invitación_nara\sonidos\Rihanna_Love_On_The_Brain.mp3">
   </audio>
 </section>
 
@@ -710,26 +730,32 @@ body{
   </svg>
 
   <div style="text-align:center;margin-bottom:28px;">
-    <span class="section-label" style="color:var(--rose);">Con amor</span>
+    <span class="section-label" style="color:var(--rose); font-size: 12px;">Con amor</span>
     <div class="gold-rule"></div>
   </div>
 
-  <p class="message-quote editable" contenteditable="true">
+  <p class="message-quote editable" contenteditable="false">
     Agradezco de corazón a Dios y a mis padres por la vida que me han dado, por guiarme y cuidarme todos estos años llenos de amor.
   </p>
 
   <div class="parents-names">
-    <span class="parent-name-el editable" contenteditable="true">Javier Hernández Hernández</span>
+    <span class="parent-name-el editable" contenteditable="false">Javier Hernández Hernández</span>
     <span class="amp">&</span>
-    <span class="parent-name-el editable" contenteditable="true">Silvia Echevarría Sánchez</span>
+    <span class="parent-name-el editable" contenteditable="false">Silvia Echevarría Sánchez</span>
+    <span></span>
+    <span class="section-label" style="color:var(--gold); margin-top:10%; font-size:15px ;">Padrino</span>
+    <span class="parent-name-el editable" contenteditable="false" style="font-size:25px; margin-top: 4%;">César Noé Argüello Hernández</span>
+    
   </div>
 
+  <!--
   <div class="wave-sep">
     <svg viewBox="0 0 430 45" preserveAspectRatio="none" style="width:100%;height:45px;display:block;">
       <path d="M0,22 C60,2 120,42 190,22 C260,2 320,42 430,22 L430,45 L0,45 Z" fill="#E8A4A4" opacity=".5"/>
       <path d="M0,28 C70,10 130,46 210,28 C280,10 350,44 430,28 L430,45 L0,45 Z" fill="#d4908a"/>
     </svg>
   </div>
+  -->
 </section>
 
 <!-- ══════════════════════════════
@@ -754,8 +780,8 @@ body{
     <circle cx="40" cy="5" r="2.5" fill="#C9A84C"/>
   </svg>
 
-  <div class="countdown-title editable" contenteditable="true">Narayani</div>
-  <div class="countdown-sub">— Faltan —</div>
+  <div class="countdown-title editable" contenteditable="false">Narayani Sophia</div>
+  <div class="countdown-sub">—-- Faltan --—</div>
 
   <div class="cd-grid">
     <div class="cd-item">
@@ -779,7 +805,7 @@ body{
     </div>
   </div>
 
-  <p class="cd-quote editable" contenteditable="true">
+  <p class="cd-quote editable" contenteditable="false">
     Estoy esperando con mucha ilusión compartir este momento tan especial contigo.
   </p>
 </section>
@@ -794,10 +820,10 @@ body{
 
   <div class="divider-fancy"><span>✦</span></div>
 
-  <span class="event-type-label">Recepción</span>
-  <div class="event-name editable" contenteditable="true">Salón Miami</div>
-  <div class="event-datetime editable" contenteditable="true">Viernes 19 de Junio, 2026 · 7:30 PM</div>
-  <p class="event-address editable" contenteditable="true">
+  <span class="event-type-label">Misa y Recepción</span>
+  <div class="event-name editable" contenteditable="false">Salón Miami</div>
+  <div class="event-datetime editable" contenteditable="false">Viernes 19 de Junio, 2026 · 7:30 PM</div>
+  <p class="event-address editable" contenteditable="false">
     Dirección del Salón Miami,<br>Ciudad, Estado.
   </p>
   <a href="#" class="btn-rose" onclick="event.preventDefault();window.open('https://maps.google.com?q=Salon+Miami')">
@@ -813,7 +839,7 @@ body{
     <path d="M50,10 C40,25 20,30 15,50 C10,70 25,85 50,110 C75,85 90,70 85,50 C80,30 60,25 50,10Z" fill="#8B6914"/>
   </svg>
 
-  <h2 class="dress-title editable" contenteditable="true">Código de Vestimenta</h2>
+  <h2 class="dress-title editable" contenteditable="false">Código de Vestimenta</h2>
   <div class="divider-fancy" style="margin:16px 0;"><span>✦</span></div>
 
   
@@ -872,10 +898,7 @@ body{
 
 </div>
 
-  
-
-
-  <div class="dress-formal editable" contenteditable="true">FORMAL</div>
+  <div class="dress-formal editable" contenteditable="false">FORMAL</div>
 
   <p style="font-size:13px;color:#8a6050;margin-bottom:12px;font-style:italic;font-family:'Cormorant Garamond',serif;">
     Colores reservados para la festejada:
@@ -899,122 +922,227 @@ body{
     </div>
   </div>
 
-  <div class="dress-restrict editable" contenteditable="true">
+  <div class="dress-restrict editable" contenteditable="false">
     Por favor evita: Blanco · Beige · Tonos muy claros
   </div>
 </section>
 
+
+<!-- ══════════════════════════════
+     FOTO 3
+══════════════════════════════ -->
+<section class="photo-strip" >
+  <img class="ps-img" id="photo3" src="images\foto7.jpg" alt="Narayani">
+  
+</section>
 <!-- ══════════════════════════════
      GALERÍA
 ══════════════════════════════ -->
-<section class="gallery-section">
+<!--
+<section class="gallery-section"> 
   <div class="gallery-title-wrap">
     <span class="section-label">Momentos</span>
     <div style="font-family:'Great Vibes',cursive;font-size:42px;color:var(--rose-lt);">Narayani</div>
     <div class="gold-rule" style="margin-top:8px;"></div>
   </div>
-
   <div class="gallery-grid">
-    <!-- Celda 1: foto portada (ya cargada) -->
+    
     <div class="gallery-cell">
-      <img id="g1" src="images\foto7.jpg" alt="" style="width:100%; height:100%; object-fit:cover; object-position:60% 10%;">
+      <img id="g1" src="images/foto7.jpg" alt="" style="width:100%; height:100%; object-fit:cover; object-position:60% 10%;">
     </div>
-    <!-- Celda 2: foto 2 -->
+    
     <div class="gallery-cell">
       <img id="g2" src="images\foto6.jpg" alt="" style="width:100%; height:100%; object-fit:cover; object-position:50% 10%;">
     </div>
-      <!-- Celda 3: foto 3 -->
+      
     <div class="gallery-cell" id="gc3">
       <img id="g3" src="images\foto5.jpg" alt=""  style="width:100%; height:100%; object-fit:cover; object-position:50% 5%;">
     </div>
-     <!-- Celda 4: foto 4 -->
+     
     <div class="gallery-cell" id="gc4">
       <img id="g4" src="images\foto4.jpg" alt="" style="width:100%; height:100%; object-fit:cover; object-position:50% 20%;">
     </div>
-     <!-- Celda 5: foto destacada (más ancha) -->
+     
     <div class="gallery-cell wide" id="gc5">
       <img id="g5" src="images\foto3.jpg" alt="" style="width:100%; height:100%; object-fit:cover; object-position:50% 17%;">
       
     </div>
-  </div>
+  </div> 
+
 </section>
+-->
+
+
+
+<!--
+MESA DE REGALOS
+
+-->
+<section class="event-section">
+  <svg style="position:absolute;top:10px;right:12px;width:70px;opacity:.2;" viewBox="0 0 100 120">
+    <path d="M50,10 C40,25 20,30 15,50 C10,70 25,85 50,110 C75,85 90,70 85,50 C80,30 60,25 50,10Z" fill="none" stroke="#C9847A" stroke-width="1.5"/>
+  </svg>
+
+  <div class="divider-fancy" style="margin-top: 0%;"><span>✦</span></div>
+
+  <div class="event-name editable" contenteditable="false">Mesa de Regalos</div>
+  <div class="event-datetime editable" contenteditable="false">Lo más bonito será compartir este momento contigo; pero si deseas tener un detalle conmigo, aquí te dejo algunas opciones.</div>
+  </p>
+  <a style="margin-top:10%;" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/51978364" class="btn-rose" onclick="event.preventDefault();window.open('https://mesaderegalos.liverpool.com.mx/milistaderegalos/51978364')">
+    Mesa de regalos liverpool
+  </a>
+</section>
+     
 
 <!-- ══════════════════════════════
      RSVP
 ══════════════════════════════ -->
+
 <section class="rsvp-section">
-  <svg style="position:absolute;top:10px;right:10px;opacity:.15;width:80px;" viewBox="0 0 100 120">
-    <path d="M50,10 C40,25 20,30 15,50 C10,70 25,85 50,110 C75,85 90,70 85,50 C80,30 60,25 50,10Z" fill="#C9847A"/>
+
+  <svg 
+    style="position:absolute;top:10px;right:10px;opacity:.15;width:80px;" 
+    viewBox="0 0 100 120">
+    <path 
+      d="M50,10 C40,25 20,30 15,50 C10,70 25,85 50,110 C75,85 90,70 85,50 C80,30 60,25 50,10Z" 
+      fill="#C9847A"/>
   </svg>
 
-  <div class="rsvp-title">¿Asistirás?</div>
-  <p class="rsvp-deadline">Confirma tu asistencia antes del <strong>5 de junio de 2026</strong></p>
+  <div class="rsvp-title">
+    ¿Asistirás?
+  </div>
+
+  <p class="rsvp-deadline">
+    Confirma tu asistencia antes del 
+    <strong>5 de junio de 2026</strong>
+    <br>
+    <br>Tu confirmación es importante para nosotros; de no recibirla, consideraremos que no podrás asistir.
+  </p>
 
   <div class="rsvp-form" id="rsvp-form">
-    <input class="rsvp-input" type="text" placeholder="Tu nombre completo" id="rsvp-name">
-    <input class="rsvp-input" type="tel" placeholder="Tu número de teléfono (opcional)" id="rsvp-phone">
-    <select class="rsvp-select" id="rsvp-attend">
-      <option value="">¿Asistirás? Selecciona...</option>
-      <option value="si">✓ Sí, con mucho gusto</option>
-      <option value="no">✗ Lamentablemente no podré</option>
+    <input 
+      class="rsvp-input"
+      type="text"
+      placeholder="Tu nombre completo"
+      id="rsvp-name">
+    <input 
+      class="rsvp-input"
+      type="tel"
+      placeholder="Tu número de teléfono (opcional)"
+      id="rsvp-phone"
+      inputmode="numeric"
+      pattern="[0-9]*">
+    <select 
+      class="rsvp-select" 
+      id="rsvp-attend"
+      onchange="toggleGuests()">
+      <option value="">
+        ¿Asistirás? Selecciona...
+      </option>
+      <option value="si">
+        ✓ Sí, con mucho gusto
+      </option>
+      <option value="no">
+        ✗ Lamentablemente no podré
+      </option>
     </select>
-    <select class="rsvp-select" id="rsvp-guests">
-      <option value="1">1 persona</option>
-      <option value="2">2 personas</option>
-      <option value="3">3 personas</option>
-      <option value="4">4 personas</option>
-    </select>
-    <button class="rsvp-btn" onclick="submitRSVP()">Confirmar asistencia</button>
+    <div id="rsvp-guests-wrap">
+      <select 
+        class="rsvp-select" 
+        id="rsvp-guests">
+        <option value="1">1 persona</option>
+        <option value="2">2 personas</option>
+        <option value="3">3 personas</option>
+        <option value="4">4 personas</option>
+      </select>
+    </div>
+    <button 
+      class="rsvp-btn"
+      onclick="submitRSVP()">
+      Confirmar asistencia
+    </button>
   </div>
-  <div class="rsvp-success" id="rsvp-success">
-    ¡Gracias! 🎀<br>
-    <span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--rose-dk);">
-      Te esperamos con mucho cariño
-    </span>
+  <div 
+    class="rsvp-success" 
+    id="rsvp-success"
+  >
+    ¡Gracias! 🎀
   </div>
 </section>
 
+
 <script>
 
-function submitRSVP() {
+async function submitRSVP() {
 
-  const name =
-    document.getElementById("rsvp-name").value;
+  const data = {
 
-  const phone =
-    document.getElementById("rsvp-phone").value;
+    name:
+      document.getElementById("rsvp-name").value,
 
-  const attend =
-    document.getElementById("rsvp-attend").value;
+    phone:
+      document.getElementById("rsvp-phone").value,
 
-  const guests =
-    document.getElementById("rsvp-guests").value;
+    attend:
+      document.getElementById("rsvp-attend").value,
 
+    guests:
+      document.getElementById("rsvp-guests").value
 
-  const message =
-`🎀 Confirmación de asistencia
-
-👤 Nombre: ${name}
-
-📞 Teléfono: ${phone}
-
-💌 Asistencia: ${attend}
-
-👥 Número de personas: ${guests}`;
+  };
 
 
-  const whatsappURL =
-`https://wa.me/5215646962334?text=${encodeURIComponent(message)}`;
+  await fetch(
+    "https://script.google.com/macros/s/AKfycbxvkIl_TN0N_Kih-CaPr3Fa7B6iRzS5njVdbLgbmwjQlu-h4nrGvlop_ul9hC_74mBL/exec"
+    {
+
+      method:"POST",
+
+      body:JSON.stringify(data)
+
+    }
+
+  );
 
 
-  window.location.href = whatsappURL;
+  document.getElementById("rsvp-form").style.display = "none";
+
+  document.getElementById("rsvp-success").style.display = "block";
+
+
+  if(data.attend === "no") {
+
+    document.getElementById("rsvp-success").innerHTML =
+    `Gracias por avisarnos 💌`;
+
+  }
+
+  else {
+
+    document.getElementById("rsvp-success").innerHTML =
+    `¡Gracias! 🎀`;
+
+  }
 
 }
 
 </script>
 
 
-
+<script>
+function toggleGuests() {
+  const attend =
+    document.getElementById("rsvp-attend").value;
+  const guests =
+    document.getElementById("rsvp-guests-wrap");
+  if(attend === "no") {
+    guests.style.display = "none";
+  }
+  else {
+    guests.style.display = "block";
+  }
+}
+</script>
 
 
 
@@ -1027,7 +1155,7 @@ function submitRSVP() {
   <p class="footer-detail">XV Años · 19 · Junio · 2026</p>
 </footer>
 
-<div class="edit-hint" id="edit-hint">✏ Toca cualquier texto para editar · + para agregar fotos</div>
+<!--<div class="edit-hint" id="edit-hint">✏ Toca cualquier texto para editar · + para agregar fotos</div>-->
 
 <script>
 // ─── Countdown ───
