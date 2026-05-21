@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<link rel="icon" type="image/png" href="images/profile_1.png">
 <title>XV Años – Narayani Sophia</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -824,7 +825,7 @@ body{
   <div class="event-name editable" contenteditable="false">Salón Miami</div>
   <div class="event-datetime editable" contenteditable="false">Viernes 19 de Junio, 2026 · 7:30 PM</div>
   <p class="event-address editable" contenteditable="false">
-    Dirección del Salón Miami,<br>Ciudad, Estado.
+    Boulevar Bosque de Las Naciones 30<br>Bosques de Aragon, 57170 <br>Cdad. Nezahualcóyotl, Méx.
   </p>
   <a href="#" class="btn-rose" onclick="event.preventDefault();window.open('https://maps.google.com?q=Salon+Miami')">
     ¿Cómo llegar?
@@ -995,7 +996,7 @@ MESA DE REGALOS
      
 
 <!-- ══════════════════════════════
-     RSVP
+     RSVP formulario
 ══════════════════════════════ -->
 
 <section class="rsvp-section">
@@ -1046,6 +1047,7 @@ MESA DE REGALOS
         ✗ Lamentablemente no podré
       </option>
     </select>
+    <!--
     <div id="rsvp-guests-wrap">
       <select 
         class="rsvp-select" 
@@ -1055,7 +1057,7 @@ MESA DE REGALOS
         <option value="3">3 personas</option>
         <option value="4">4 personas</option>
       </select>
-    </div>
+    </div> -->
     <button 
       class="rsvp-btn"
       onclick="submitRSVP()">
@@ -1070,79 +1072,6 @@ MESA DE REGALOS
   </div>
 </section>
 
-
-<script>
-
-async function submitRSVP() {
-
-  const data = {
-
-    name:
-      document.getElementById("rsvp-name").value,
-
-    phone:
-      document.getElementById("rsvp-phone").value,
-
-    attend:
-      document.getElementById("rsvp-attend").value,
-
-    guests:
-      document.getElementById("rsvp-guests").value
-
-  };
-
-
-  await fetch(
-    "https://script.google.com/macros/s/AKfycbxvkIl_TN0N_Kih-CaPr3Fa7B6iRzS5njVdbLgbmwjQlu-h4nrGvlop_ul9hC_74mBL/exec"
-    {
-
-      method:"POST",
-
-      body:JSON.stringify(data)
-
-    }
-
-  );
-
-
-  document.getElementById("rsvp-form").style.display = "none";
-
-  document.getElementById("rsvp-success").style.display = "block";
-
-
-  if(data.attend === "no") {
-
-    document.getElementById("rsvp-success").innerHTML =
-    `Gracias por avisarnos 💌`;
-
-  }
-
-  else {
-
-    document.getElementById("rsvp-success").innerHTML =
-    `¡Gracias! 🎀`;
-
-  }
-
-}
-
-</script>
-
-
-<script>
-function toggleGuests() {
-  const attend =
-    document.getElementById("rsvp-attend").value;
-  const guests =
-    document.getElementById("rsvp-guests-wrap");
-  if(attend === "no") {
-    guests.style.display = "none";
-  }
-  else {
-    guests.style.display = "block";
-  }
-}
-</script>
 
 
 
@@ -1246,7 +1175,7 @@ function addGalleryPhoto(cellId,event){
 }
 
 // ─── RSVP ───
-function submitRSVP(){
+/*function submitRSVP(){
   const name=document.getElementById('rsvp-name').value.trim();
   const attend=document.getElementById('rsvp-attend').value;
   if(!name){alert('Por favor ingresa tu nombre.');return;}
@@ -1254,6 +1183,57 @@ function submitRSVP(){
   document.getElementById('rsvp-form').style.display='none';
   document.getElementById('rsvp-success').style.display='block';
 }
+
+
+
+
+//FORMULARIO//
+
+
+async function submitRSVP(){
+const data={name:rsvp-name.value,phone:rsvp-phone.value,attend:rsvp-attend.value};
+try{
+await fetch("https://script.google.com/macros/s/AKfycbxRbaaccCCPz5DqKvxoAyaeQGMnYgQ6E0mS0xXo9Gj6MmiV92AeQjhZs5oceG2hYpE5/exec",{method:"POST",body:JSON.stringify(data)});
+rsvp-success.style.display="block";
+}catch(error){alert("Error");console.log(error);}
+}
+
+*/
+
+
+async function submitRSVP(){
+
+const name=document.getElementById('rsvp-name').value.trim();
+const phone=document.getElementById('rsvp-phone').value.trim();
+const attend=document.getElementById('rsvp-attend').value;
+
+if(!name){alert('Por favor ingresa tu nombre.');return;}
+if(!attend){alert('Por favor indica si asistirás.');return;}
+
+const data={name,phone,attend};
+
+try{
+
+await fetch("https://script.google.com/macros/s/AKfycbxRbaaccCCPz5DqKvxoAyaeQGMnYgQ6E0mS0xXo9Gj6MmiV92AeQjhZs5oceG2hYpE5/exec",{
+method:"POST",
+body:JSON.stringify(data)
+});
+
+document.getElementById('rsvp-form').style.display='none';
+document.getElementById('rsvp-success').style.display='block';
+
+}catch(error){
+
+alert('Error al enviar');
+console.log(error);
+
+}
+
+}
+
+
+
+
 
 // ─── Hide hint ───
 setTimeout(()=>{
